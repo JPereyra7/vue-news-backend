@@ -6,11 +6,10 @@ const PORT = 3000;
 app.use(express.json());
 
 // Define middleware to set CORS headers
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-});
+app.use(cors({
+    origin: 'https://vue-news-joel.netlify.app'
+}));
+
 
 // Define route to fetch news data
 app.get('/api/news', async (req, res) => {
